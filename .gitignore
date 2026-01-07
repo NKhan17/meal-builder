@@ -1,0 +1,17 @@
+# Dependency directories
+node_modules/
+meal-builder-react/node_modules/
+
+# Build outputs
+meal-builder-react/dist/
+meal-builder-react/dist-ssr/
+
+# Logs
+*.log
+npm-debug.log*
+
+# Environment and OS files
+.env
+.DS_Store
+Thumbs.db
+.vscode/
