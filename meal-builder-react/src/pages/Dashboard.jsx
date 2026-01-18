@@ -82,7 +82,7 @@ const loadUserStats = () => {
           <h3 className="section-title">Today's Meal Plan <span className="date-highlight">{todayDate}</span></h3>
           <div className="meal-card-content">
              <img 
-               src="/chickencurry.jpeg" 
+               src="/meal-builder/chickencurry.jpeg" 
                alt="Curry" 
                onError={(e) => { e.target.src = 'https://placehold.co/128x128?text=Curry'; }} 
              />
