@@ -10,7 +10,7 @@ import CreateRecipe from './pages/CreateRecipe'; // ADD THIS LINE
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/meal-builder">
       <div className="App">
         <header className="header">
           <div className="container header-content">
