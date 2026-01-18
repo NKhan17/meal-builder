@@ -7,11 +7,13 @@ const app = express();
 
 app.use(cors({
     origin: [
-        "https://nkhan17.github.io", 
-        "https://nkhan17.github.io/meal-builder", 
+        "https://nkhan17.github.io",
+        "https://nkhan17.github.io/meal-builder", // Add the full sub-folder path
         "http://localhost:3000"
-    ]
-})); 
+    ],
+    methods: ["GET", "POST", "DELETE", "PUT"],
+    credentials: true
+}));
 
 app.use(express.json()); 
 
