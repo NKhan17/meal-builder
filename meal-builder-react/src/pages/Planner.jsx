@@ -6,15 +6,15 @@ function Planner() {
   const [selection, setSelection] = useState({ recipe_id: '', date: '', type: 'Dinner' });
 
   const refreshPlanner = () => {
-    fetch('http://localhost:3000/api/meal-plans').then(res => res.json()).then(setPlans);
-    fetch('http://localhost:3000/api/recipes').then(res => res.json()).then(setRecipes);
+    fetch('https://meal-builder-production.up.railway.app/api/meal-plans').then(res => res.json()).then(setPlans);
+    fetch('https://meal-builder-production.up.railway.app/api/recipes').then(res => res.json()).then(setRecipes);
   };
 
   useEffect(() => { refreshPlanner(); }, []);
 
   const handleAddMeal = (e) => {
     e.preventDefault();
-    fetch('http://localhost:3000/api/meal-plans', {
+    fetch('https://meal-builder-production.up.railway.app/api/meal-plans', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
@@ -29,7 +29,7 @@ function Planner() {
   // DELETE FUNCTION
   const deletePlan = (id) => {
     if (window.confirm("Remove this meal from your plan?")) {
-      fetch(`http://localhost:3000/api/meal-plans/${id}`, { method: 'DELETE' })
+      fetch(`https://meal-builder-production.up.railway.app/api/meal-plans/${id}`, { method: 'DELETE' })
         .then(() => refreshPlanner());
     }
   };

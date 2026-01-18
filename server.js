@@ -3,7 +3,9 @@ const mysql = require('mysql2');
 const cors = require('cors');
 
 const app = express();
-app.use(cors()); 
+app.use(cors({
+    origin: ["https://nkhan17.github.io", "http://localhost:3000"]
+})); 
 app.use(express.json()); 
 
 // Database Connection using Railway Environment Variables
@@ -11,7 +13,7 @@ const db = mysql.createConnection({
     host: process.env.MYSQLHOST || 'localhost',
     user: process.env.MYSQLUSER || 'root',
     password: process.env.MYSQLPASSWORD || 'SQL123', 
-    database: process.env.MYSQLDATABASE || 'railway', // Use 'railway' if that's the name in your variables
+    database: process.env.MYSQLDATABASE || 'railway', 
     port: process.env.MYSQLPORT || 3306
 });
 
@@ -121,7 +123,13 @@ app.delete('/api/meal-plans/:id', (req, res) => {
     });
 });
 const PORT = process.env.PORT || 3000;
+<<<<<<< HEAD
 
 app.listen(PORT, '0.0.0.0', () => {
     console.log(`Server is running on port ${PORT}`);
 });
+=======
+app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
+});
+>>>>>>> 281c0c5 (Production config)

@@ -14,7 +14,7 @@ function CreateRecipe() {
     e.preventDefault();
     
     // Connects to the POST route in your server.js
-    fetch('http://localhost:3000/api/recipes', {
+    fetch('https://meal-builder-production.up.railway.app/api/recipes', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(formData),

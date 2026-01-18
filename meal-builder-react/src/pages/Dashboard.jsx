@@ -35,7 +35,7 @@ function Dashboard() {
 
   const loadUserStats = () => {
     setStatsText("Fetching from Backend...");
-    fetch('http://localhost:3000/api/stats')
+    fetch('meal-builder-production.up.railway.app/api/stats')
       .then(res => res.json())
       .then(data => {
         setStats(data);

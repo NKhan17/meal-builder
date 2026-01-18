@@ -5,7 +5,7 @@ function Recipes() {
 
   // Function to fetch recipes so we can call it whenever we need
   const fetchRecipes = () => {
-    fetch('http://localhost:3000/api/recipes')
+    fetch('meal-builder-production.up.railway.app')
       .then(res => res.json())
       .then(data => setRecipes(data))
       .catch(err => console.error("Error fetching recipes:", err));
@@ -14,7 +14,7 @@ function Recipes() {
   // Function to delete a recipe from the database
   const deleteRecipe = (id) => {
     if (window.confirm("Are you sure? This will also remove the recipe from any meal plans.")) {
-      fetch(`http://localhost:3000/api/recipes/${id}`, { 
+      fetch(`meal-builder-production.up.railway.app/api/recipes/${id}`, { 
         method: 'DELETE' 
       })
       .then(res => {
