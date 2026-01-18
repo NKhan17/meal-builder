@@ -6,12 +6,13 @@ const app = express();
 app.use(cors()); 
 app.use(express.json()); 
 
-// Database Connection
+// Database Connection using Railway Environment Variables
 const db = mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: 'SQL123', 
-    database: 'meal_builder_db'
+    host: process.env.MYSQLHOST || 'localhost',
+    user: process.env.MYSQLUSER || 'root',
+    password: process.env.MYSQLPASSWORD || 'SQL123', 
+    database: process.env.MYSQLDATABASE || 'railway', // Use 'railway' if that's the name in your variables
+    port: process.env.MYSQLPORT || 3306
 });
 
 db.connect((err) => {
@@ -119,7 +120,8 @@ app.delete('/api/meal-plans/:id', (req, res) => {
         res.json({ message: "Plan removed successfully" });
     });
 });
-const PORT = 3000;
-app.listen(PORT, () => {
-    console.log(`Server is running on http://localhost:${PORT}`);
+const PORT = process.env.PORT || 3000;
+
+app.listen(PORT, '0.0.0.0', () => {
+    console.log(`Server is running on port ${PORT}`);
 });
