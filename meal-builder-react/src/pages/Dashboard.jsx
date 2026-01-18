@@ -33,20 +33,21 @@ function Dashboard() {
     }, 1000);
   };
 
-  const loadUserStats = () => {
-    setStatsText("Fetching from Backend...");
-    fetch('meal-builder-production.up.railway.app/api/stats')
-      .then(res => res.json())
-      .then(data => {
-        setStats(data);
-        setStatsText(`You have ${data.total_recipes} recipes!`);
-        triggerAlert("Data synced with MySQL Database!");
-      })
-      .catch(() => {
-        setStatsText("Database Error");
-        triggerAlert("Check if your Node server is running.");
-      });
-  };
+const loadUserStats = () => {
+  setStatsText("Fetching from Backend...");
+  // Added https://
+  fetch('https://meal-builder-production.up.railway.app/api/stats') 
+    .then(res => res.json())
+    .then(data => {
+      setStats(data);
+      setStatsText(`You have ${data.total_recipes} recipes!`);
+      triggerAlert("Data synced with MySQL Database!");
+    })
+    .catch(() => {
+      setStatsText("Database Error");
+      triggerAlert("Check if your Node server is running.");
+    });
+};
 
   return (
     <main className="container main-content">

@@ -4,9 +4,13 @@ const cors = require('cors');
 
 const app = express();
 
-// Enable CORS for your live site and local testing
+
 app.use(cors({
-    origin: ["https://nkhan17.github.io", "http://localhost:3000"]
+    origin: [
+        "https://nkhan17.github.io", 
+        "https://nkhan17.github.io/meal-builder", 
+        "http://localhost:3000"
+    ]
 })); 
 
 app.use(express.json()); 
